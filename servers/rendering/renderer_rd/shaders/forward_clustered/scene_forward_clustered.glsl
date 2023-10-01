@@ -1907,6 +1907,12 @@ void fragment_shader(in SceneData scene_data) {
 
 			float size_A = sc_use_light_soft_shadows ? directional_lights.data[i].size : 0.0;
 
+#ifdef LIGHT_SOURCE_INFO
+			bool _light_has_direction = true;
+			bool _light_has_range = false;
+			uint _light_index = i;
+#endif
+
 			light_compute(normal, directional_lights.data[i].direction, normalize(view), size_A,
 #ifndef DEBUG_DRAW_PSSM_SPLITS
 					directional_lights.data[i].color * directional_lights.data[i].energy,
@@ -1932,6 +1938,9 @@ void fragment_shader(in SceneData scene_data) {
 #ifdef LIGHT_ANISOTROPY_USED
 					binormal,
 					tangent, anisotropy,
+#endif
+#ifdef LIGHT_SOURCE_INFO
+					_light_has_direction, _light_has_range, _light_index,
 #endif
 					diffuse_light,
 					specular_light);

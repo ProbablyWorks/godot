@@ -634,6 +634,9 @@ void SceneShaderForwardClustered::init(const String p_defines) {
 		actions.renames["ATTENUATION"] = "attenuation";
 		actions.renames["DIFFUSE_LIGHT"] = "diffuse_light";
 		actions.renames["SPECULAR_LIGHT"] = "specular_light";
+		actions.renames["LIGHT_HAS_DIRECTION"] = "light_has_direction";
+		actions.renames["LIGHT_HAS_RANGE"] = "light_has_range";
+		actions.renames["LIGHT_INDEX"] = "light_index";
 
 		actions.usage_defines["NORMAL"] = "#define NORMAL_USED\n";
 		actions.usage_defines["TANGENT"] = "#define TANGENT_USED\n";
@@ -659,6 +662,9 @@ void SceneShaderForwardClustered::init(const String p_defines) {
 		actions.usage_defines["COLOR"] = "#define COLOR_USED\n";
 		actions.usage_defines["INSTANCE_CUSTOM"] = "#define ENABLE_INSTANCE_CUSTOM\n";
 		actions.usage_defines["POSITION"] = "#define OVERRIDE_POSITION\n";
+		actions.usage_defines["LIGHT_HAS_DIRECTION"] = "#define LIGHT_SOURCE_INFO\n";
+		actions.usage_defines["LIGHT_HAS_RANGE"] = "#define LIGHT_SOURCE_INFO\n";
+		actions.usage_defines["LIGHT_INDEX"] = "#define LIGHT_SOURCE_INFO\n";
 
 		actions.usage_defines["ALPHA_SCISSOR_THRESHOLD"] = "#define ALPHA_SCISSOR_USED\n";
 		actions.usage_defines["ALPHA_HASH_SCALE"] = "#define ALPHA_HASH_USED\n";
